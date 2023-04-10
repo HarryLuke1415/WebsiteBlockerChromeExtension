@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "site-blocker",
     "version": "1.0.0",
     "description": "Site blocker Chrome extension",
@@ -8,17 +8,42 @@
         "48": "images/icon48.png",
         "128": "images/icon128.png"
 },
+    "action": {
+    "default_title": "Site-Blocker",
+    "default_icon": "images/icon48.png",
+    "default_popup": "popup/popup.html"
+},
     "content_scripts": [
     {
         "matches": [
-
+            "https://www.manning.com/dashboard"
         ],
         "css": [
             "css/blockedPage.css"
         ]
     }
 ],
+
     "web_accessible_resources": [
-    "css/blockedPage.css"
-]
+        {
+            "resources": [
+                "css/blockedPage.css",
+                "dashboard/dashboard.html"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "permissions": [
+        "tabs",
+        "background"
+    ]
 }
+
+

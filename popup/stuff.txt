@@ -1,0 +1,10 @@
+"web_accessible_resources": [
+    {
+        "resources": [
+            "css/blockedPage.css"
+        ],
+        "matches": [
+            "<all_urls>"
+        ]
+    }
+]
